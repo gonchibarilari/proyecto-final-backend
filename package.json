@@ -1,5 +1,6 @@
 {
   "name": "proyecto-final-backend",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,5 +8,18 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonchibarilari/proyecto-final-backend.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/gonchibarilari/proyecto-final-backend/issues"
+  },
+  "homepage": "https://github.com/gonchibarilari/proyecto-final-backend#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
 }

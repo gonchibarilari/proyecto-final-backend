@@ -13,7 +13,17 @@ res.send(products);
 productsRouter.get("/:pid", (req, res) => {
     let pid = req.params.pid;
     let product = PM.getProductById(pid);
-res.send(product);
+
+    res.send(product);
 })
+
+productsRouter.post("/", (req, res) => {
+    const {title, description, code, price, status, category, thumbnails} = req.body;
+    let product = {title, description, code, price, status, category, thumbnails};
+    PM.addProduct(product);
+    res.send({"estado": "OK", "mensaje": "Producto agregado correctamente"})
+   
+})
+
 
 export default productsRouter;

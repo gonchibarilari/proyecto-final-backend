@@ -18,10 +18,13 @@ class ProductManager{
     getProductById(id){
         this.products = JSON.parse(fs.readFileSync(this.file, "utf-8"));
         let product = this.products.find(item => item.id == id);
+
         return product ? product : {error: "producto no encontrado"};
     }
     addProduct(product){
-        return this.products;
+        this.getProducts();
+        this.products.push(product);    
+        return this.saveProducts();
     }
     editProduct(id, product){
         return this.products;
@@ -29,6 +32,10 @@ class ProductManager{
     }
     deleteProduct(id){
         return this.products;
+    }
+
+    saveProducts(){
+         return fs.writeFileSync(this.file, JSON.stringify(this.products));
     }
 }
 

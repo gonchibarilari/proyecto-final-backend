@@ -11,8 +11,20 @@ class ProductManager{
             fs.writeFileSync(this.file, JSON.stringify(this.products));
         }
     }
+
+    getId() {
+        this.getProducts();
+        let max = 0;
+        this.products.forEach(product => {
+            if (item.id > max){
+                max = item.id;
+            }
+        })
+        return max + 1; 
+    }
     getProducts(){
         this.products = JSON.parse(fs.readFileSync(this.file, "utf-8"));
+
         return this.products;
     }
     getProductById(id){
@@ -23,8 +35,9 @@ class ProductManager{
     }
     addProduct(product){
         this.getProducts();
+        product.id = this.getId();
         this.products.push(product);    
-        return this.saveProducts();
+        this.saveProducts();
     }
     editProduct(id, product){
         return this.products;
@@ -35,7 +48,7 @@ class ProductManager{
     }
 
     saveProducts(){
-         return fs.writeFileSync(this.file, JSON.stringify(this.products));
+        fs.writeFileSync(this.file, JSON.stringify(this.products));
     }
 }
 

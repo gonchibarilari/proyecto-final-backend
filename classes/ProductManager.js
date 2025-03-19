@@ -46,7 +46,19 @@ class ProductManager{
     }
 
     editProduct(id, product){
-        return this.products;
+        this.getProducts();
+        let actualProduct = this.products.find(item => item.id == id);
+
+        // let newProduct = {id:id, ...actualProduct, ...product};
+        // this.products.push(newProduct);    
+        actualProduct.title = product.title;
+        actualProduct.description = product.description;
+        actualProduct.code = product.code;
+        actualProduct.price = product.price;
+        actualProduct.status = product.status;
+        actualProduct.category = product.category;
+        actualProduct.thumbnails = product.thumbnails;
+        this.saveProducts();
         
     }
     deleteProduct(id){
